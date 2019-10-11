@@ -19,7 +19,7 @@ var closeEye=Math.random()*5000+2000;
 var openEye=Math.random()*2000;
 var eyesClosed=false;
 var $eyelids=document.querySelectorAll("span");
-setInterval(blink, closeEye);
+// setInterval(blink, closeEye);
 
 function blink() {
     for(let i=0;i<2;i++){
@@ -34,7 +34,7 @@ function blink() {
         eyesClosed=false;
       }, openEye);
       closeEye=Math.random()*5000+2000;
-      openEye=Math.random()*2000;
+      openEye=Math.random()*2000+2000;
 }
 
 
@@ -80,13 +80,15 @@ function keepScore(){
 }
  
 //user lost
+document.onclick=redEyes;
 function redEyes(){
     document.removeEventListener("mouseover", moveIris);
 
     for(let i=0;i<2;i++){
         $iris[i].style.left=50+"%";
         $iris[i].style.top=50+"%";
-        $iris[i].style.background="red";
+        $iris[i].style.background="#aa3433";
+
 
     }
 }
