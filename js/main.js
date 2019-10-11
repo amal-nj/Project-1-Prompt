@@ -1,6 +1,10 @@
 //iris movement
 var $iris=document.getElementsByClassName("iris");
-document.onmousemove=function(){
+var score=0;
+var heighScore=0;
+document.addEventListener("mouseover", moveIris);
+
+function moveIris(){
     let x=event.clientX*100/window.innerWidth+"%";
     let y=event.clientY*100/window.innerHeight+"%";
 
@@ -11,22 +15,78 @@ document.onmousemove=function(){
 }
 
 //Random blinking
-var closeEye=Math.random()*5000+1000;
+var closeEye=Math.random()*5000+2000;
 var openEye=Math.random()*2000;
+var eyesClosed=false;
 var $eyelids=document.querySelectorAll("span");
-var myVar = setInterval(blink, closeEye);
+setInterval(blink, closeEye);
 
 function blink() {
-    console.log("blink");
     for(let i=0;i<2;i++){
         $eyelids[i].style.height=100+"%";
     }
+    eyesClosed=true;
     setTimeout(function() {
+        let shut=Math.random()*15+"%";
         for(let i=0;i<2;i++){
-            $eyelids[i].style.height=0+"%";
+            $eyelids[i].style.height=shut;
         }
+        eyesClosed=false;
       }, openEye);
-      closeEye=Math.random()*5000+1000;
+      closeEye=Math.random()*5000+2000;
       openEye=Math.random()*2000;
 }
 
+
+
+//moving targets
+setInterval(makeClouds, 6000);
+function makeClouds(){
+var $cloud=document.createElement("div");
+$cloud.classList.add("cloud");
+var $body=document.querySelector("body");
+$cloud.addEventListener('click',keepScore);
+//remove on hover
+$cloud.onmouseover=keepScore;
+//
+$cloud.style.top=Math.random()*70+"%";
+
+$body.appendChild($cloud);
+setTimeout(function() {
+ $cloud.style.left=100+"%";
+},2000)
+setTimeout(function() {
+    $cloud.remove();
+   },6000)//=time until move+ transition time
+}
+
+//score keeping
+var $score=document.querySelector(".score");
+function keepScore(){
+    if(!eyesClosed){
+        if(score>heighScore){
+            heighScore=score;
+        }
+        redEyes();
+    }
+    else{
+        score++;
+        $score.innerText=score;
+        this.remove();
+
+
+     }
+
+}
+ 
+//user lost
+function redEyes(){
+    document.removeEventListener("mouseover", moveIris);
+
+    for(let i=0;i<2;i++){
+        $iris[i].style.left=50+"%";
+        $iris[i].style.top=50+"%";
+        $iris[i].style.background="red";
+
+    }
+}
