@@ -107,12 +107,12 @@ body{
 
 
   .cloud{
-      height: 100px;
-      width: 100px;
+      height: 200px;
+      width: 200px;
       /* background-color: aliceblue; */
       position: absolute;
       top: 50px;
-      left:-100px;
+      left:-20%;
       transition: 5s all;
       background-image: url("cloud1.png");
       background-size: contain;

@@ -19,7 +19,7 @@ var closeEye=Math.random()*5000+2000;
 var openEye=Math.random()*2000;
 var eyesClosed=false;
 var $eyelids=document.querySelectorAll("span");
-// setInterval(blink, closeEye);
+setInterval(blink, closeEye);
 
 function blink() {
     for(let i=0;i<2;i++){
@@ -34,13 +34,16 @@ function blink() {
         eyesClosed=false;
       }, openEye);
       closeEye=Math.random()*5000+2000;
-      openEye=Math.random()*2000+2000;
+      openEye=Math.random()*2000+500;
 }
 
 
 
 //moving targets
-setInterval(makeClouds, 6000);
+setInterval(makeClouds, 3240);
+setInterval(makeClouds, 5600);
+setInterval(makeClouds, 1300);
+
 function makeClouds(){
 var $cloud=document.createElement("div");
 $cloud.classList.add("cloud");
@@ -52,13 +55,14 @@ $cloud.onmouseover=keepScore;
 $cloud.style.top=Math.random()*70+"%";
 
 $body.appendChild($cloud);
-setTimeout(function() {
- $cloud.style.left=100+"%";
-},2000)
-setTimeout(function() {
-    $cloud.remove();
+    setTimeout(function() {
+        $cloud.style.left=120+"%";
+    },2000)
+    setTimeout(function() {
+        $cloud.remove();
    },6000)//=time until move+ transition time
 }
+
 
 //score keeping
 var $score=document.querySelector(".score");
@@ -87,7 +91,10 @@ function redEyes(){
     for(let i=0;i<2;i++){
         $iris[i].style.left=50+"%";
         $iris[i].style.top=50+"%";
-        $iris[i].style.background="#aa3433";
+        $iris[i].style.background="red";
+        $iris[i].style.border="40px solid black";
+
+
 
 
     }
