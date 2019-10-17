@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,31 +8,80 @@
     <title>Cloud Collector</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <!-- <div class="score">Score</div> -->
-    <!-- <img src="pixil-frame-0.png" alt=""> -->
-    <button>Pause</button>
+
+    <div class="game-play">
+        <div class="score">Score</div>
+        <div class="caught">Cuaght</div>
+    </div>
+ 
+
     <div class="eyes">
-        <div class ="eye" id="eyeLeft">
+        <div class="eye" id="eyeLeft">
             <div class="eyelid" id="lidLeft">
                 <span></span>
             </div>
-            <div class="irisContain">       
-                 <div class="iris"></div>
+            <div class="irisContain">
+                <div class="iris"></div>
             </div>
 
-        
+
         </div>
-        <div class ="eye" id="eyeRight">
+        <div class="eye" id="eyeRight">
             <div class="eyelid" id="lidRight">
                 <span></span>
             </div>
-            <div class="irisContain">       
-                    <div class="iris"></div>
+            <div class="irisContain">
+                <div class="iris"></div>
             </div>
 
         </div>
     </div>
-    <script src="js/main.js"></script>
+    <!-- Modal -->
+    <div class="modale opened start-page" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <img src="css/pixel-cloud-2.png" width="30%" alt="cloud">
+                <h2>Cloud Collector</h2>
+            </div>
+            <div class="modal-body">
+                <p>You live in a village where water resources are scarce. In order to get water, you have decided to
+                    steal some clouds. But the sky loves her clouds and keeps a close eye on them.
+                    <br>
+                    Collect the clouds by placing the mouse over them when the sky's eyes are closed. But avoid doing so
+                    when the eyes are open, or you’ll get caught! Beware, with each cloud you collect the sky becomes
+                    more alert.
+                </p>
+                <div class="modal-footer">
+
+
+                    <a href="#" class="btn" id="start">START</a>
+                </div>
+            </div>
+        </div>
+        <!-- /Modal -->
+
+        
+    <!-- <div class="modale opened you-lost" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-header">
+                    <img src="css/pixel-cloud-2.png" width="30%" alt="cloud">
+                    <h2>You you-lost</h2>
+                </div>
+                <div class="modal-body">
+                    <p> The sky caught you steeling too many clouds
+                    </p>
+                    <div class="modal-footer">
+    
+    
+                        <a href="#" class="btn" id="replay">Replay</a>
+                    </div>
+                </div>
+            </div>
+    </div> -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+        <script src="js/main.js"></script>
 </body>
+
 </html>
